@@ -71,7 +71,7 @@ function findToy(event){
 }
 
 function increaseLikes(toy) {
-  toy.likes++
+  ++toy.likes
   fetch(`http://localhost:3000/toys/${toy.id}`, {
     method: 'PATCH',
     headers: {
@@ -82,7 +82,7 @@ function increaseLikes(toy) {
       "likes": toy.likes
     })
   })
-//   .then(resp => resp.json())
-//   .then(toy => collectToys())
-//   // collectToys()
+  toyCollection.innerHTML = ""
+  // toyCollection.querySelectorAll('*').forEach(n => n.remove())
+  collectToys()
 }
