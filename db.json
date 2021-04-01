@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 38
+      "likes": 39
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "id": 3,
       "name": "Mr. Potato Head",
       "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
-      "likes": 25
+      "likes": 33
     },
     {
       "id": 4,
@@ -195,8 +195,20 @@
     {
       "name": "toy name",
       "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
-      "likes": 0,
+      "likes": 1,
       "id": 33
+    },
+    {
+      "name": "Rick & Morty",
+      "image": "https://i.etsystatic.com/16440310/r/il/b4ba44/2467779247/il_794xN.2467779247_fg3q.jpg",
+      "likes": 1,
+      "id": 34
+    },
+    {
+      "name": "Peter",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/41cuQnJf5kL._AC_.jpg",
+      "likes": 3,
+      "id": 35
     }
   ]
 }

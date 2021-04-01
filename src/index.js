@@ -16,7 +16,37 @@ function addToyToDom(toy) {
   divCard.innerHTML = `<h2>${toy.name}</h2><img class="toy-avatar" src=${toy.image}><p>${toy.likes}</p><button id=${toy.id} class="like-btn">Like <3</button>`
   toyCollection.append(divCard)
   const likeBtn = document.getElementById(toy.id)
-  likeBtn.addEventListener('click', findToy)
+  likeBtn.addEventListener('click', increaseLikes)
+}
+
+// function findToy(event){
+//   const toyId = event.target.id
+//   fetch(`http://localhost:3000/toys/${toyId}`)
+//   .then(resp => resp.json())
+//   .then(toy => increaseLikes(toy))
+// }
+
+
+function increaseLikes(e) {
+  // ++toy.likes
+  let likes = e.target.parentElement.querySelector('p').innerText
+  ++likes
+  const id = e.target.id
+
+  fetch(`http://localhost:3000/toys/${id}`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      "likes": likes
+    })
+  })
+
+  e.target.parentElement.querySelector('p').innerText = likes
+  // toyCollection.innerHTML = ""
+  // collectToys()
 }
 
 let addToy = false;
@@ -54,35 +84,12 @@ function createToy(event) {
       "likes": 0
     })
   })
+  .then(resp = resp.json())
+  .then(data => addToyToDom(data))
+
   toyInputs[0].value = ""
   toyInputs[1].value = ""
-  toyCollection.innerHTML = ""
   addBtn.click()
-  collectToys()
-}
-
-
-
-function findToy(event){
-  const toyId = event.target.id
-  fetch(`http://localhost:3000/toys/${toyId}`)
-  .then(resp => resp.json())
-  .then(toy => increaseLikes(toy))
-}
-
-function increaseLikes(toy) {
-  ++toy.likes
-  fetch(`http://localhost:3000/toys/${toy.id}`, {
-    method: 'PATCH',
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify({
-      "likes": toy.likes
-    })
-  })
-  toyCollection.innerHTML = ""
-  // toyCollection.querySelectorAll('*').forEach(n => n.remove())
-  collectToys()
+  // toyCollection.innerHTML = ""
+  // collectToys()
 }
